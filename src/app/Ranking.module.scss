@@ -23,28 +23,16 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      row-gap: 10px;
 
       &:nth-child(odd) {
         margin-top: 12%;
       }
 
-      p {
-        margin: 0;
-        font-size: 14px;
-        font-weight: 600;
-      }
-
-      .pts {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        font-size: 12px;
-      }
-
       .avatar {
-        width: 80px;
-        height: 80px;
-        margin-bottom: 20px;
+        width: 85px;
+        height: 85px;
+        margin-bottom: 12px;
         position: relative;
 
         border: 3px solid $primary-color;
@@ -82,10 +70,91 @@
           border-radius: 50%;
         }
       }
+
+      p {
+        margin: 0;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .kick {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        column-gap: 5px;
+
+        .icon {
+          width: 20px;
+          height: 20px;
+          fill: $primary-color;
+        }
+
+        span {
+          font-size: 14px;
+          font-weight: 600;
+        }
+      }
     }
   }
 
-  .list {
-    display: none;
+  .ranking {
+    width: 100%;
+    padding: 30px 20px;
+    background: $primary-color-lite;
+
+    ul.container {
+      list-style: none;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      row-gap: 10px;
+
+      li.item {
+        width: 100%;
+        height: 50px;
+        padding: 10px 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        column-gap: 10px;
+        background: $color-white-lite;
+
+        &.active {
+          background: $primary-color;
+        }
+
+        img {
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+        }
+
+        span {
+          width: 100%;
+          display: block;
+
+          &:nth-child(1) {
+            width: 10%;
+            // font-size: ;
+            font-weight: 600;
+          }
+
+          &:nth-child(3) {
+            text-align: left;
+            font-weight: 600;
+          }
+
+          &:nth-child(4) {
+            text-align: right;
+          }
+        }
+      }
+    }
   }
 }
