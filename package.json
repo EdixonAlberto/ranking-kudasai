@@ -1,7 +1,12 @@
 {
   "name": "ranking-kudasai",
-  "version": "0.1.0",
-  "private": true,
+  "description": "App web con el ranking de usuarios kicked del servidor de Kudasai",
+  "version": "0.0.1",
+  "private": false,
+  "author": {
+    "name": "Edixon Piña",
+    "email": "edixonalbertto@gmail.com"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -23,5 +28,9 @@
     "prettier": "^3.0.3",
     "sass": "^1.68.0",
     "typescript": "latest"
+  },
+  "engines": {
+    "node": "^18.17.1",
+    "pnpm": "^8.7.0"
   }
 }

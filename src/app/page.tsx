@@ -77,7 +77,7 @@ export default function Ranking() {
         <ul className={styles.container}>
           {users.map((user, i) => {
             return (
-              <li className={styles.item + (user.username === userSession.name ? ' ' + styles.active : '')}>
+              <li key={i} className={styles.item + (user.username === userSession.name ? ' ' + styles.active : '')}>
                 <span>{i + 1}</span>
                 <img src={Tools.getAvatar(user)} alt={`Avatar ${user.nick}`} />
                 <span>{user.nick}</span>
