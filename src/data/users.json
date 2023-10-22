@@ -62,5 +62,13 @@
     "kick": 2,
     "ban": 0,
     "warn": 0
+  },
+  {
+    "nick": "Kasuki",
+    "username": "kasuki_official",
+    "avatar": "/static/img/avatars/kasuki.webp",
+    "kick": 383,
+    "ban": 0,
+    "warn": 0
   }
 ]
