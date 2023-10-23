@@ -39,7 +39,7 @@ export default async function Ranking({ searchParams }: IRankingProps) {
 
   function getLeaders(users: IUser[]): IUser[] {
     const leaders = users.sort((a, b) => b.kick - a.kick)
-    return [leaders[1], leaders[0], leaders[3]]
+    return [leaders[1], leaders[0], leaders[2]]
   }
 
   return (
