@@ -1,0 +1,14 @@
+$font-name: 'PlaypenSans';
+$path-font: '/static/font';
+
+@font-face {
+  font-family: $font-name;
+  src: url($path-font + '/#{$font-name}-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: $font-name;
+  src: url($path-font + '/#{$font-name}-Bold.ttf') format('truetype');
+  font-weight: 600;
+}

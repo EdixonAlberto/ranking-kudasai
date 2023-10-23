@@ -2,12 +2,14 @@ import styles from './Ranking.module.scss'
 import { Icons } from '~/components/Icons'
 import { Tools } from '~/utils/Tools.util'
 
-const userSession = {
-  name: 'edixon'
+interface IRankingProps {
+  searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export default async function Ranking() {
-  // TODO: get data from query param
+export default async function Ranking({ searchParams }: IRankingProps) {
+  const userSession = {
+    name: searchParams.username
+  }
 
   async function getUsers(): Promise<IUser[]> {
     try {
@@ -48,7 +50,7 @@ export default async function Ranking() {
       <h1>Ranking Kudasai</h1>
 
       <div className={styles.leaders}>
-        <p className={styles.subtitle}>Tabla de Lideres</p>
+        <p className={styles.subtitle}>Lideres de Kicks</p>
 
         <div className={styles.table}>
           {users.length &&
@@ -78,6 +80,8 @@ export default async function Ranking() {
       </div>
 
       <div className={styles.ranking_list}>
+        <p className={styles.subtitle}>Ranking de Kicks</p>
+
         <ul className={styles.container}>
           {users.map((user, i) => {
             return (
@@ -85,7 +89,7 @@ export default async function Ranking() {
                 <span>{i + 1}</span>
                 <img src={Tools.getAvatar(user)} alt={`Avatar ${user.nick}`} />
                 <span>{user.nick}</span>
-                <span>{user.kick} kick</span>
+                <span>{user.kick} kicks</span>
               </li>
             )
           })}
