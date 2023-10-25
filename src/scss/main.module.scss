@@ -1,3 +1,7 @@
 #app {
   @import 'utils/normalice', 'utils/typography';
+
+  main {
+    height: calc(100vh - $height-footer);
+  }
 }

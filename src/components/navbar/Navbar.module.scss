@@ -1,0 +1,96 @@
+footer.navbar {
+  width: 100%;
+  height: $height-footer;
+  position: fixed;
+  bottom: 0;
+  background-color: $primary-color;
+
+  ul {
+    $width-section: 60px;
+    $space-section: 30px;
+    $size-section: $width-section + $space-section;
+
+    list-style: none;
+    width: max-content;
+    height: 100%;
+    padding: 0;
+    margin: 0 auto;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: $space-section;
+
+    &::before {
+      content: '';
+      width: $width-section;
+      height: $width-section;
+      position: absolute;
+      top: -15px;
+      left: -$size-section;
+      transition: transform 0.25s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+      border-radius: 50%;
+      background-color: $primary-color;
+      z-index: 1;
+    }
+
+    // TODO: Improves styles in Sass
+    &.section {
+      &_1 {
+        &::before {
+          transform: translateX(calc($size-section * 1));
+        }
+      }
+      &_2 {
+        &::before {
+          transform: translateX(calc($size-section * 2));
+        }
+      }
+      &_3 {
+        &::before {
+          transform: translateX(calc($size-section * 3));
+        }
+      }
+      &_4 {
+        &::before {
+          transform: translateX(calc($size-section * 4));
+        }
+      }
+    }
+
+    li {
+      width: $width-section;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+
+      .icon {
+        width: 25px;
+        height: 25px;
+        margin-bottom: 10px;
+        fill: $color-grey-lite;
+      }
+
+      &.active .icon {
+        fill: $color-grey;
+        animation: 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s 1 normal none running jump;
+      }
+    }
+  }
+}
+
+@keyframes jump {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
