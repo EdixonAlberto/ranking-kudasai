@@ -22,6 +22,7 @@ footer.navbar {
     justify-content: center;
     column-gap: $space-section;
 
+    // TODO: Improve figure design
     &::before {
       content: '';
       width: $width-section;
@@ -37,30 +38,29 @@ footer.navbar {
     }
 
     // TODO: Improves styles in Sass
-    &.section {
-      &_1 {
-        &::before {
-          transform: translateX(calc($size-section * 1));
-        }
+    &.ranking {
+      &::before {
+        transform: translateX(calc($size-section * 1));
       }
-      &_2 {
-        &::before {
-          transform: translateX(calc($size-section * 2));
-        }
+    }
+    &.gallery {
+      &::before {
+        transform: translateX(calc($size-section * 2));
       }
-      &_3 {
-        &::before {
-          transform: translateX(calc($size-section * 3));
-        }
+    }
+    &.chat {
+      &::before {
+        transform: translateX(calc($size-section * 3));
       }
-      &_4 {
-        &::before {
-          transform: translateX(calc($size-section * 4));
-        }
+    }
+    &.profile {
+      &::before {
+        transform: translateX(calc($size-section * 4));
       }
     }
 
     li {
+      cursor: pointer;
       width: $width-section;
       height: 100%;
       display: flex;

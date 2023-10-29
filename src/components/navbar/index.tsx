@@ -1,34 +1,45 @@
 'use client'
 
-import { useState } from 'react'
-
 import styles from './Navbar.module.scss'
+import { useState } from 'react'
+import { useRouter, usePathname } from 'next/navigation'
 import { Icons } from '~/components/Icons'
 
-export function Navbar() {
-  const [sectionName, setSectionName] = useState<string>('section_1')
+type TPages = 'ranking' | 'gallery' | 'chat' | 'profile'
 
-  function classSection(name: string): typeof styles.active {
-    return name === sectionName ? styles.active : ''
+export function Navbar() {
+  const router = useRouter()
+  const pathname = usePathname()
+  const [pageName, setPageName] = useState<TPages>('ranking')
+
+  function classSection(page: TPages): typeof styles.active {
+    return page === pageName ? styles.active : ''
   }
+
+  function goPage(page: TPages): void {
+    setPageName(page)
+    router.push('/' + page)
+  }
+
+  if (['/', '/login'].includes(pathname)) return null
 
   return (
     <footer className={styles.navbar}>
-      <ul className={styles[sectionName]}>
-        <li className={classSection('section_1')} onClick={() => setSectionName('section_1')}>
+      <ul className={styles[pageName]}>
+        <li className={classSection('ranking')} onClick={() => goPage('ranking')}>
           <Icons.Cup styles={styles} />
         </li>
 
-        <li className={classSection('section_2')} onClick={() => setSectionName('section_2')}>
+        <li className={classSection('gallery')} onClick={() => goPage('gallery')}>
           <Icons.Images styles={styles} />
         </li>
 
-        <li className={classSection('section_3')} onClick={() => setSectionName('section_3')}>
-          <Icons.User styles={styles} />
+        <li className={classSection('chat')} onClick={() => goPage('chat')}>
+          <Icons.Chat styles={styles} />
         </li>
 
-        <li className={classSection('section_4')} onClick={() => setSectionName('section_4')}>
-          <Icons.Chat styles={styles} />
+        <li className={classSection('profile')} onClick={() => goPage('profile')}>
+          <Icons.User styles={styles} />
         </li>
       </ul>
     </footer>

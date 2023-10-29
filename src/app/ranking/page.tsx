@@ -3,12 +3,14 @@ import { Icons } from '~/components/Icons'
 import { Tools } from '~/utils/Tools.util'
 
 interface IRankingProps {
-  searchParams: { [key: string]: string | string[] | undefined }
+  searchParams: {
+    username: string
+  }
 }
 
 export default async function Ranking({ searchParams }: IRankingProps) {
   const userSession = {
-    name: searchParams.username
+    username: searchParams.username
   }
 
   async function getUsers(): Promise<IUser[]> {
@@ -85,8 +87,8 @@ export default async function Ranking({ searchParams }: IRankingProps) {
         <ul className={styles.container}>
           {users.map((user, i) => {
             return (
-              <li key={i} className={styles.item + (user.username === userSession.name ? ' ' + styles.active : '')}>
-                <span>{i + 1}</span>
+              <li key={i} className={styles.item + (user.username === userSession.username ? ' ' + styles.active : '')}>
+                <span>#{i + 1}</span>
                 <img src={Tools.getAvatar(user)} alt={`Avatar ${user.nick}`} />
                 <span>{user.nick}</span>
                 <span>{user.kick} kicks</span>

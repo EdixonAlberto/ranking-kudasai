@@ -69,6 +69,11 @@
     span {
       font-size: 18px;
     }
+
+    &:disabled {
+      cursor: default;
+      opacity: 50%;
+    }
   }
 
   .link {

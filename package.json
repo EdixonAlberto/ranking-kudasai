@@ -1,8 +1,9 @@
 {
   "name": "ranking-kudasai",
-  "description": "App web con el ranking de usuarios kicked del servidor de Kudasai",
+  "description": "App web para los usuarios del discord de kudasai",
   "version": "0.0.1",
   "private": false,
+  "license": "MIT",
   "author": {
     "name": "Edixon Piña",
     "email": "edixonalbertto@gmail.com"
@@ -12,7 +13,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write ./src/*.{ts,tsx,json,scss}"
+    "format": "prettier --write ./src/**/*.{ts,tsx,json,scss}",
+    "prepare": "husky install"
   },
   "dependencies": {
     "next": "latest",
@@ -27,8 +29,10 @@
     "eslint-config-next": "latest",
     "prettier": "^3.0.3",
     "sass": "^1.68.0",
-    "typescript": "latest"
+    "typescript": "latest",
+    "husky": "^8.0.0"
   },
+  "packageManager": "pnpm@8.7.0",
   "engines": {
     "node": "^18.17.1",
     "pnpm": "^8.7.0"

@@ -1,38 +1,21 @@
 'use client'
 
-import { useState, ChangeEvent } from 'react'
-import styles from './Login.module.scss'
+import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
-export default function Login() {
+export default function Main() {
   const router = useRouter()
-  const [username, setUsername] = useState<string>('')
 
-  return (
-    <div className={styles.login}>
-      <h1>Kudasai</h1>
-      <div className={styles.banner}></div>
+  // MOUNT
+  useEffect(() => {
+    const session = localStorage.getItem('session')
 
-      <p>
-        Ingresa tu <strong>username</strong> de Discord
-      </p>
-      <input
-        type="text"
-        name="username"
-        placeholder="Username"
-        autoFocus
-        onChange={({ target }: ChangeEvent<HTMLInputElement>) => setUsername(target.value)}
-      />
-      <button type="submit" onClick={() => router.push(`/ranking?username=${username}`)}>
-        <span>Ingresar</span>
-      </button>
+    if (session) {
+      const { username } = JSON.parse(session) as { username: string }
+      router.push(`/ranking?username=${username}`)
+      return
+    }
 
-      <div className={styles.link}>
-        <span>¿No eres miembro del servidor de Kudasai?</span>{' '}
-        <a href="https://discord.gg/kudasai" target="_blank" rel="noopener noreferrer">
-          Unete aquí
-        </a>
-      </div>
-    </div>
-  )
+    router.push('/login')
+  }, [])
 }

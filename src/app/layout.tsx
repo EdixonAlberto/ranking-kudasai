@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Ranking Kudasai',
-  description: 'Esta página muestra un ranking de usuarios para el servidor de discord de kudasai'
+  description: 'Aplicación web para los usuarios del discord de Kudasai'
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
