@@ -1,4 +1,5 @@
 import styles from './Ranking.module.scss'
+import Image from 'next/image'
 import { Icons } from '~/components/Icons'
 import { Tools } from '~/utils/Tools.util'
 
@@ -49,7 +50,7 @@ export default async function Ranking({ searchParams }: IRankingProps) {
       {/* TODO: return to login from server component */}
       {/* <Icons.Back styles={styles} /> */}
 
-      <h1>Ranking Kudasai</h1>
+      <h2>Ranking</h2>
 
       <div className={styles.leaders}>
         <p className={styles.subtitle}>Lideres de Kicks</p>
@@ -89,7 +90,7 @@ export default async function Ranking({ searchParams }: IRankingProps) {
             return (
               <li key={i} className={styles.item + (user.username === userSession.username ? ' ' + styles.active : '')}>
                 <span>#{i + 1}</span>
-                <img src={Tools.getAvatar(user)} alt={`Avatar ${user.nick}`} />
+                <Image src={Tools.getAvatar(user)} width={35} height={35} alt={`Avatar ${user.nick}`} />
                 <span>{user.nick}</span>
                 <span>{user.kick} kicks</span>
               </li>
